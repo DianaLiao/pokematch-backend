@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_19_184632) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "pokemons", force: :cascade do |t|
     t.integer "api_id"
     t.string "name"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 2021_05_19_184632) do
   end
 
   create_table "user_pokemons", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "pokemon_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "pokemon_id", null: false
     t.integer "times_matched", default: 0
     t.integer "times_caught", default: 0
     t.datetime "first_caught"
