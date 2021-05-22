@@ -5,4 +5,14 @@ class PokemonsController < ApplicationController
 
     render json: pokemons
   end
+
+  def game
+    cards = Pokemon.game_cards(params[:num_cards].to_i)
+
+    render json: cards
+  end
+
+
+
+
 end
