@@ -17,10 +17,9 @@ class Pokemon < ApplicationRecord
       new_id = card_ids.shift
       
       mon_hash = mon.attributes
-      mon_hash[:card_id] = new_id
-      mon_hash
+      mon_hash["card_id"] = new_id
+      mon_hash.deep_transform_keys{|key| key.camelize(:lower)}
     end
-
     return response
   end
 
