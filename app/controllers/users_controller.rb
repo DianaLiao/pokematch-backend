@@ -31,6 +31,13 @@ class UsersController < ApplicationController
     set_user
   end
 
+  def top_ten
+    users = User.top_ten
+
+    render json: users
+
+  end
+
   private
 
   def set_user

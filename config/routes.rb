@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   post "/users/login", to: "users#login"  
+  get "users/top_ten", to: "users#top_ten"
   get "/pokemons/game/:num_cards", to: "pokemons#game"
 
   resources :user_pokemons

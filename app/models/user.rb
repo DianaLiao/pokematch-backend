@@ -10,4 +10,21 @@ class User < ApplicationRecord
     self.user_pokemons.map{|mon| mon.pokemon_id}
   end
 
+  def pokedex_completion
+    "#{number_of_caught_mon} / #{Pokemon.all.length}"
+  end
+
+  def number_of_caught_mon
+    user_pokemons.where("times_caught > 0").length
+  end
+
+  def self.top_ten
+    ranked_users = User.all.sort{|a,b| b.number_of_caught_mon - a.number_of_caught_mon}
+    if ranked_users.length > 10
+      return ranked_users.first(10)
+    else
+      return ranked_users
+    end
+  end
+
 end
