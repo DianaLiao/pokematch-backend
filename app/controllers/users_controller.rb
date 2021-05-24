@@ -27,8 +27,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    authenticate
+    # authenticate
     set_user
+
+    if @user.update(user_params)
+      render json: @user
+    else
+      render json: { errors: @user.errors.full_messages }
+    end
   end
 
   def top_ten
@@ -45,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:name, :email, :password)
+    params.permit(:name, :email, :password, :companion_id)
   end
 
 end
