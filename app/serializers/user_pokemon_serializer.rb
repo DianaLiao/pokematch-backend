@@ -3,6 +3,5 @@ class UserPokemonSerializer < ActiveModel::Serializer
   belongs_to :user
   belongs_to :pokemon
 
-  
 
 end

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many  :user_pokemons
   has_many  :pokemons, through: :user_pokemons
+  belongs_to  :companion, class_name: "Pokemon"
 
   validates :email, uniqueness: true
 
