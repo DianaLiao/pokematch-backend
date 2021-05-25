@@ -10,4 +10,14 @@ class UserPokemon < ApplicationRecord
     self.pokemon.front_sprite
   end
 
+  def determine_capture
+    chance = (self.pokemon.capture_rate/255.0) + rand()
+
+    if chance >= 1
+      true
+    else
+      false
+    end
+  end
+
 end
