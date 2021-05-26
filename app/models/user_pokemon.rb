@@ -2,6 +2,8 @@ class UserPokemon < ApplicationRecord
   belongs_to :user
   belongs_to :pokemon
 
+  validates :pokemon_id, uniqueness: { scope: :user_id, message: "relationship already exists" }
+
   def pokemon_name
     self.pokemon.name
   end
