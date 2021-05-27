@@ -11,20 +11,27 @@ UserPokemon.reset_pk_sequence
 User.destroy_all
 User.reset_pk_sequence
 
-test_user = User.create(name: "Mollymon", email:"molly@weenz.com", password:"pass123")
+test_user = User.create(name: "Mollymon", email:"molly@weenz.com", password:"pass123", total_score:1500)
+complete_dex_user = User.create(name:"Pokemon Master", email:"pokemonmaster99@yahoo.com", password:"pass123", total_score: 200000)
 
 15.times do 
-  User.create(name:Faker::Name.first_name, email: Faker::Internet.unique.email, password:"pass123")  
+  User.create(name:Faker::Name.first_name, email: Faker::Internet.unique.email, password:"pass123", total_score:rand(1..20)*50)  
 end
 
 puts "test users seeded!"
 
-20.times do
+30.times do
   UserPokemon.create(user_id:test_user.id, pokemon_id:Pokemon.pluck(:id).sample, times_matched:rand(3..10), times_caught:rand(0..3))
 end
 
 150.times do
-  UserPokemon.create(user_id:rand(1..User.last.id), pokemon_id:Pokemon.pluck(:id).sample, times_matched:rand(3..10), times_caught:rand(0..3))
+  UserPokemon.create(user_id:rand(3..User.last.id), pokemon_id:Pokemon.pluck(:id).sample, times_matched:rand(3..10), times_caught:rand(0..3))
+end
+
+num = Pokemon.first.id
+while (num <= Pokemon.all.length)
+  UserPokemon.create(user_id: complete_dex_user.id, pokemon_id:num, times_matched: 1, times_caught: 1)
+  num += 1
 end
 
 puts "test user_pokemons seeded!"
