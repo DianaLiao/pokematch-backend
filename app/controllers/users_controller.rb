@@ -37,6 +37,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_score
+    set_user
+
+    new_total = @user.total_score + user_params[:score_to_add].to_i
+
+    if @user.update(total_score: new_total)
+      render json: @user
+    else
+      render json: { errors: @user.errors.full_messages }
+    end
+  end
+
   def top_ten
     users = User.top_ten
 
@@ -51,7 +63,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:name, :email, :password, :companion_id)
+    params.permit(:name, :email, :password, :companion_id, :score_to_add)
   end
 
 end
