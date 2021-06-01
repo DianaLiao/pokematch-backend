@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_29_024105) do
+ActiveRecord::Schema.define(version: 2021_06_01_034449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2021_05_29_024105) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "total_score", default: 0
+    t.string "companion_name", default: "My Favorite Pokémon"
+    t.string "motto", default: "I want to be the very best, like no one ever was"
   end
 
   add_foreign_key "user_pokemons", "pokemons"

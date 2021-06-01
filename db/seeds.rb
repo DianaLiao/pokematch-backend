@@ -36,6 +36,6 @@ end
 
 puts "test user_pokemons seeded!"
 
-User.all.each {|user| user.update(companion_id: Pokemon.pluck(:id).sample)}
+User.all.each {|user| user.update(companion_id: user.pokemons.pluck(:id).sample)}
 
 puts "assigned random companions!"
