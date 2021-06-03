@@ -14,7 +14,7 @@ User.reset_pk_sequence
 # test_user = User.create(name: "Mollymon", email:"molly@weenz.com", password:"pass123", total_score:1500)
 complete_dex_user = User.create(name:"SuperSean", email:"pokemonmaster99@yahoo.com", password:"pass123", total_score: 200000)
 
-hamstars = ["Seth or is it Sean", "Hamry", "Radish", "Andre the Giant", "Amanda", "Shafee", "Jabair", "Yuri", "Missy", "Hanna", "Menachem", "Sir Appleby", "Matt"]
+hamstars = ["Seth or is it Sean", "Hamry", "Radish", "Andre the Giant", "Amanda", "Shafee", "Jabair", "Yuri", "Missy", "Hanna", "Menachem", "Mayor Appleby", "JWT is Bae"]
 
 hamstars.each do |ham|
   User.create(name:ham, email: Faker::Internet.unique.email, password:"pass123", total_score:rand(1..20)*50)  

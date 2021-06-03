@@ -13,7 +13,9 @@ class UserPokemon < ApplicationRecord
   end
 
   def determine_capture
-    chance = (self.pokemon.capture_rate/255.0) + rand()
+
+    # added 0.1 for demo purposes
+    chance = (self.pokemon.capture_rate/255.0) + rand() + 0.1
 
     if chance >= 1
       true
