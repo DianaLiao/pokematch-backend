@@ -8,8 +8,8 @@ This is a memory matching card game with a Pokémon theme. After matching the ca
 2) In the project directory, run `bundle install`
 3) Run `rails db:create` in order to create the Postgres database
 4) Run `rails pokeapi_fetch:seed 151` to seed initial Pokémon data
-5) Run `rails db:seed` for initial users.
-6) Ensure your local postgreSQL server is running.
+5) Optional: Run `rails db:seed` for some initial users. 
+6) Ensure your local PostgreSQL server is running.
 6) Run `rails s` to start the server.
 7) Clone the [frontend repo](https://github.com/DianaLiao/pokematch-frontend) to your machine and follow those instructions.
 
@@ -24,7 +24,9 @@ To play a game, set a difficulty in the dropdown and click on "Start". Flip card
 
 ## Troubleshooting & Notes
 
-If the frontend doesn't seem to be connected to the backend, make sure that the `serverUrl` in `App.js` is configured correctly to match the rails server. 
+If the frontend doesn't seem to be connected to the backend, make sure that the `serverUrl` in `App.js` is configured correctly to match the rails server URL.
+
+If the Rails server seems to be encountering errors upon startup, double check to see if your PostgreSQL server is running.
 
 As of this writing, there is no functionality to reset your password. (Sorry!)
 
