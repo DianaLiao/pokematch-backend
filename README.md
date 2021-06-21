@@ -9,13 +9,16 @@ This is a memory matching card game with a Pokémon theme. After matching the ca
 3) Run `rails db:create` in order to create the Postgres database
 4) Run `rails pokeapi_fetch:seed 151` to seed initial Pokémon data
 5) Run `rails db:seed` for initial users.
+6) Ensure your local postgreSQL server is running.
 6) Run `rails s` to start the server.
-7) Clone the [frontend repo](https://github.com/DianaLiao/pokematch-frontend) to your machine and follow those instructions
+7) Clone the [frontend repo](https://github.com/DianaLiao/pokematch-frontend) to your machine and follow those instructions.
 
 
 ## Using the App
 
 Create a user account or login with an existing email in the database. 
+
+You may change your user info on the welcome screen. You may choose your "companion Pokémon" which will appear next to your name on the leaderboards. Your options will be limited to Pokémon you have "caught" in the game.
 
 To play a game, set a difficulty in the dropdown and click on "Start". Flip cards and attempt to match two of the same Pokémon. If you complete all matches within the time alloted, you will be awarded bonus points. To submit the results of the game, click on the "Submit" button.
 
